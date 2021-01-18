@@ -1,6 +1,8 @@
 const nameRouter = require('express').Router();
 const names = require('./names.js');
 
+//router sends requests to name.js and return response (result) to front-end page that sent the request
+
 //List names in alphabetical order
 nameRouter.get('/getAllInAlphabeticalOrder', async (req,res) => {
     await names.getAllInAlphabeticalOrder()
