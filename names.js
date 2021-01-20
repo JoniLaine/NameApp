@@ -61,12 +61,11 @@ const getAmountByName = async (request) => {
 
 	const nameData = fs.readFileSync('./names.json');
 	const names = JSON.parse(nameData);
-	//request value (given name) is set to be more descriptive
-	const givenName = request
-	//empty variable that will get the amount of given name
-	//if amount variable is empty (there is no such name on the list) it will be set as 0 in NameFormPage.js (front-end) 
-	let amount= ''		
-		  
+	//request value's (the given name) first letter is capitalized and the value is set to be more descriptive
+	const givenName = request.charAt(0).toUpperCase() + request.slice(1);
+	//amount is an empty variable that will get the amount of given name
+	let amount= ''			  
+	//if amount variable is empty after for-loop (there is no such name on the list) it will be set as 0 in NameFormPage.js (in front-end) 
 	try {
 		for (i = 0; i < names.names.length; i++) {
 			if (givenName == names.names[i].name){
